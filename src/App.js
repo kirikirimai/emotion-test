@@ -41,15 +41,25 @@ const FontColor = styled.p`
   font-weight: bold;
 `;
 
-const box = css`
-  width: 300px;
-  height: 300px;
-  margin: auto;
-`;
 const bgColorRed = css`
   background-color: red;
 `;
 
+const box = css`
+  ${bgColorRed}
+  width: 300px;
+  height: 300px;
+  margin: auto;
+`;
+
+const marginBottom = css({
+  marginBottom: "16px",
+});
+
+const style = css({
+  ...marginBottom,
+  padding: "16px",
+});
 const rollOver = css`
   font-weight: bold;
   font-size: 20px;
@@ -67,20 +77,45 @@ const rollOver = css`
   }
 `;
 
+const listStyle = css`
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  li {
+    background-color: blue;
+    margin: 0 10px;
+  }
+`;
+
+const listStyleObj = css({
+  display: "flex",
+  justifyContent: "center",
+  listStyle: "none",
+  li: {
+    backgroundColor: "red",
+    margin: "0 10px",
+  },
+});
+
 const rollOverObj = css({
   fontWeight: "bold",
   fontSize: "20px",
   "&:hover": {
-    opacity: 0.5,
+    opacity: "0.5",
   },
   "&::before": {
     content: '"●"',
     display: "inline-block",
   },
-  "@media (max-width: 767px)":{
+  "@media (max-width: 767px)": {
     fontSize: "8vw",
-  }
+  },
 });
+
+
+const buttonWrapperStyle = css`
+  background-color: #ffff00;
+`
 
 function App() {
   const [clicked, setClicked] = useState(false);
@@ -94,7 +129,8 @@ function App() {
 
       <div className="app">
         <h1 css={ttlh1}>EmotoinCSSの練習</h1>
-        <div css={[box, bgColorRed]}>ここはボックス</div>
+        <div css={box}>ここはボックス</div>
+        <div css={style}>ここはボックス:オブジェク</div>
         <p
           css={css`
             font-size: 30px;
@@ -106,6 +142,20 @@ function App() {
         <p css={rollOver}>ロールオーバー</p>
         <p css={rollOverObj}>ロールオーバーオブジェクト</p>
 
+        <ul css={listStyle}>
+          <li>リスト</li>
+          <li>リスト</li>
+          <li>リスト</li>
+        </ul>
+
+        <ul css={listStyleObj}>
+          <li>リスト</li>
+          <li>リスト</li>
+          <li>リスト</li>
+        </ul>
+
+        <ButtonComponet css={buttonWrapperStyle} >ボタンだよ</ButtonComponet>
+
         <FontColor clicked={clicked} onClick={clickHandler}>
           Styled componentsのようにクリックして文字色を帰る
         </FontColor>
@@ -113,5 +163,9 @@ function App() {
     </>
   );
 }
+
+const ButtonComponet = ({className, children}) => (
+  <button className={className}>{children}</button>
+)
 
 export default App;
