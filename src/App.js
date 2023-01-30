@@ -22,6 +22,10 @@ const ttlh1 = css`
   &.is-clicked {
     background-color: blue;
   }
+
+  &:hover{
+    color:blue;
+  }
 `;
 
 const globalBody = css`
