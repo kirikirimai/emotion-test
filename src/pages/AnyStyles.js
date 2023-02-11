@@ -28,11 +28,12 @@ const AnyStyles = () => {
         </p>
 
         <hr />
+      
         <div css={boxLyout.wrap}>
           <div onClick={onBgHandler} css={boxLyout.box(isBg)}>
             <h2 css={boxLyout.ttl}>タイトル</h2>
             <div css={boxLyout.article}>
-              <p>ここは文章ここは文章ここは文章。</p>
+              <p>このボックスをクリックすると背景が赤くなります。</p>
               <p>ここは文章ここは文章ここは文章。</p>
             </div>
           </div>
@@ -40,7 +41,7 @@ const AnyStyles = () => {
           <div onClick={onBgHandler} css={boxLyout.box(isBg)}>
             <h2 css={boxLyout.ttl}>タイトル</h2>
             <div css={boxLyout.article}>
-              <p>ここは文章ここは文章ここは文章。</p>
+            <p>このボックスをクリックすると背景が赤くなります。</p>
               <p>ここは文章ここは文章ここは文章。</p>
             </div>
           </div>
