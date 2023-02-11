@@ -35,6 +35,7 @@ const Practice = () => {
         <p>
           ホームは<Link to={`/`}>こちら</Link>
         </p>
+        <p>いろんな書き方<Link to={`/anystyles/`}>こちら</Link></p>
         <hr />
         <h2>Emotionによるcss animation</h2>
         <div css={anime}></div>

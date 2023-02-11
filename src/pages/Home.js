@@ -136,6 +136,7 @@ function Home() {
         <h1 css={ttlh1}>EmotoinCSSの練習</h1>
 
         <p>他の練習は<Link to={`/practice/`}>こちら</Link></p>
+        <p>いろんな書き方<Link to={`/anystyles/`}>こちら</Link></p>
         <div css={box}>ここはボックス</div>
         <div css={style}>ここはボックス:オブジェク</div>
         <p
