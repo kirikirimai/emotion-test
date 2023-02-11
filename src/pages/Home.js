@@ -1,6 +1,6 @@
 
 /** @jsxImportSource @emotion/react */
-import { css, Global } from "@emotion/react";
+import { css, Global} from "@emotion/react";
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
@@ -33,6 +33,7 @@ const globalBody = css`
   body {
     margin: 0;
     background: #cfcfcf;
+    padding: 30px;
   }
 `;
 
@@ -85,6 +86,9 @@ const listStyle = css`
   li {
     background-color: blue;
     margin: 0 10px;
+    &:nth-child(3){
+      background-color: orange;
+    }
   }
 `;
 
@@ -144,6 +148,7 @@ function Home() {
         </p>
         <p css={rollOver}>ロールオーバー</p>
         <p css={rollOverObj}>ロールオーバーオブジェクト</p>
+
 
         <ul css={listStyle}>
           <li>リスト</li>
