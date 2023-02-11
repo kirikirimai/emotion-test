@@ -54,11 +54,6 @@ const addBgRed=css`
 
 `
 
-const addBgBlue=css`
-  background-color: blue;
-
-`
-
 const Practice = () => {
   const [isClick, setIsClick] = useState(false);
   const [addClass, setAddClass] = useState(false);
@@ -106,7 +101,7 @@ const Practice = () => {
 
         <hr />
         <h2>クリックしたら要素cssを追加してみる。</h2>
-        <div css={[borderBox,addClass ? addBgRed:addBgBlue]} onClick={addClassHandler}>
+        <div css={[borderBox,addClass && addBgRed]} onClick={addClassHandler}>
           <p>ボーダーボックス。<br/>クリックしたら背景色をつける</p>
         </div>
       </div>
