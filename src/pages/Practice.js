@@ -33,20 +33,42 @@ const hoverTransition = css`
   }
 `;
 
-const setBg = (flg) =>(
+const setBg = (flg) =>
   css`
     background-color: ${flg ? "red" : "blue"};
     width: 100px;
     height: 100px;
     cursor: pointer;
-  `
-);
+  `;
+
+const borderBox =css`
+border:2px solid #ff0000;
+padding: 10px;
+width: 100px;
+cursor: pointer;
+transition: all 0.3s;
+`
+
+const addBgRed=css`
+  background-color: #ff0000;
+
+`
+
+const addBgBlue=css`
+  background-color: blue;
+
+`
 
 const Practice = () => {
   const [isClick, setIsClick] = useState(false);
+  const [addClass, setAddClass] = useState(false);
 
   const bgChangeHandler = () => {
     setIsClick(!isClick);
+  };
+
+  const addClassHandler = () => {
+    setAddClass(!addClass);
   };
   return (
     <>
@@ -80,6 +102,12 @@ const Practice = () => {
         </ul>
         <div css={setBg(isClick)} onClick={bgChangeHandler}>
           <p>背景色を帰る</p>
+        </div>
+
+        <hr />
+        <h2>クリックしたら要素cssを追加してみる。</h2>
+        <div css={[borderBox,addClass ? addBgRed:addBgBlue]} onClick={addClassHandler}>
+          <p>ボーダーボックス。<br/>クリックしたら背景色をつける</p>
         </div>
       </div>
     </>
