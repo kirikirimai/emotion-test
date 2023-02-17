@@ -7,6 +7,7 @@ const Practice = () => {
   const [isClick, setIsClick] = useState(false);
   const [addClass, setAddClass] = useState(false);
   const [isScaleFlg, setIsScale] = useState(false);
+  const [isColor, setIsColor] = useState("1");
 
   const bgChangeHandler = () => {
     setIsClick(!isClick);
@@ -18,6 +19,10 @@ const Practice = () => {
 
   const onScaleHandler = () => {
     setIsScale(!isScaleFlg);
+  };
+
+  const onChangeColor = (e) => {
+    setIsColor(e.target.value);
   };
 
   return (
@@ -35,7 +40,9 @@ const Practice = () => {
         <p>
           ホームは<Link to={`/`}>こちら</Link>
         </p>
-        <p>いろんな書き方<Link to={`/anystyles/`}>こちら</Link></p>
+        <p>
+          いろんな書き方<Link to={`/anystyles/`}>こちら</Link>
+        </p>
         <hr />
         <h2>Emotionによるcss animation</h2>
         <div css={anime}></div>
@@ -70,12 +77,52 @@ const Practice = () => {
         <h2>クリックしたらクラスを追加して大きくしてみる</h2>
         <div css={boxFlex}>
           <button onClick={onScaleHandler}>クリック</button>
-          <div css={[scaleBox, isScaleFlg && isScale]}>
-          </div>
+          <div css={[scaleBox, isScaleFlg && isScale]}></div>
+        </div>
+
+        <hr />
+        <h2>関数でいろいろ条件分岐やってみる</h2>
+        <p>{isColor}</p>
+        <label>
+          数値:
+          <input onChange={(e) => {onChangeColor(e);}} type="number" max="3" min="1" />
+        </label>
+        <div css={[funcBox, cssFunc(isColor)]}>
+          <p>このボックスの背景色を引数によって変更する</p>
+          <p>1:赤</p>
+          <p>2:青</p>
+          <p>3:黄色</p>
         </div>
       </div>
     </>
   );
+};
+
+const funcBox = css`
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  border: 4px solid #ff0000;
+`;
+
+const cssFunc = (num) => {
+ 
+  let colors = "red";
+  
+  if(num === "1") {
+    colors = "red";
+  }
+  if (num === "2") {
+    colors = "blue";
+  }
+  if (num === "3") {
+    colors = "yellow";
+  }
+  console.log(colors);
+  
+  return  css`
+  background-color: ${colors};
+`
 };
 
 const boxFlex = css`
